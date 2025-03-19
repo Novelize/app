@@ -1,0 +1,13 @@
+import "base"
+import "novel"
+import "user"
+
+model Notebook extends Base {
+  userId BigInt
+
+  name        String  @db.VarChar(255)
+  description String?
+
+  User       User        @relation(fields: [userId], references: [id])
+  Novels     Novel[]
+}

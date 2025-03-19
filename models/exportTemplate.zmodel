@@ -1,0 +1,36 @@
+import "base"
+import "enums"
+import "user"
+
+model ExportTemplate extends Base {
+  userId BigInt
+
+  name     String       @db.VarChar(255)
+  fileType FileTypeEnum @default(Word)
+
+  fontFamily           FontFamilyEnum           @default(Helvetica)
+  pageSize             PageSizeEnum             @default(Letter)
+  titleFontSize        TitleFontSizeEnum        @default(Medium48)
+  subtitleFontSize     SubtitleFontSizeEnum     @default(Medium28)
+  SectionTitleFontSize SectionTitleFontSizeEnum @default(Medium20)
+  sceneTitleFontSize   SceneTitleFontSizeEnum   @default(Medium18)
+  sceneTextFontSize    SceneTextFontSizeEnum    @default(Medium14)
+  lineHeight           LineHeightEnum           @default(Double)
+
+  includeSectionNumber Boolean @default(false)
+  includeChapterTitles Boolean @default(true)
+  includeSceneTitles   Boolean @default(false)
+  sceneDivider         String  @default("*******")
+  includePageNumbers   Boolean @default(false)
+  includeNotes         Boolean @default(false)
+  includeText          Boolean @default(true)
+
+  isManuscript Boolean @default(false)
+  street       String? @db.VarChar(255)
+  city         String? @db.VarChar(255)
+  state        String? @db.VarChar(255)
+  zipcode      String? @db.VarChar(255)
+  phone        String? @db.VarChar(255)
+
+  User User @relation(fields: [userId], references: [id])
+}

@@ -1,0 +1,38 @@
+import "base"
+import "enums"
+import "goal"
+import "notebook"
+import "scene"
+import "section"
+import "series"
+import "user"
+
+model Novel extends Base {
+  status         NovelStatusEnum @default(Idea)
+  title          String          @db.VarChar(255)
+  subtitle       String?         @db.VarChar(255)
+  author         String?         @db.VarChar(255)
+  genre          GenreEnum       @default(GeneralFiction)
+  description    String?
+
+  coverImagePath String?         @db.VarChar(255)
+  isbn           String?         @db.VarChar(255)
+  asin           String?         @db.VarChar(255)
+  publishedAt    DateTime?
+
+  summary        String?         @db.Text
+  beginning      String?         @db.Text
+  middle         String?         @db.Text
+  end            String?         @db.Text
+
+  Goal           Goal?
+  goalId         BigInt?
+  Notebook       Notebook?       @relation(fields: [notebookId], references: [id])
+  notebookId     BigInt?
+  Scenes         Scene[]
+  Sections       Section[]
+  Series         Series?         @relation(fields: [seriesId], references: [id])
+  seriesId       BigInt?
+  User           User            @relation(fields: [userId], references: [id])
+  userId         BigInt
+}

@@ -1,0 +1,8 @@
+import "base"
+
+model Entry extends Base {
+  name        String  @db.VarChar(255)
+  description String?
+  details     String? @db.Text
+  imagePath   String? @db.VarChar(255)
+}

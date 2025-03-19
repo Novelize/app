@@ -1,0 +1,28 @@
+import "base"
+import "novel"
+import "user"
+
+model Goal extends Base {
+  userId  BigInt
+  novelId BigInt? @unique
+
+  isActive   Boolean @default(true)
+  sendReport Boolean @default(false)
+
+  total  Int
+  daily  Int?
+  weekly Int?
+
+  monday    Int?
+  tuesday   Int?
+  wednesday Int?
+  thursday  Int?
+  friday    Int?
+  saturday  Int?
+  sunday    Int?
+
+  startAt DateTime @default(now())
+
+  User  User   @relation(fields: [userId], references: [id])
+  Novel Novel? @relation(fields: [novelId], references: [id])
+}

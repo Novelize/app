@@ -1,0 +1,35 @@
+import "base"
+import "exportTemplate"
+import "goal"
+import "notebook"
+import "novel"
+import "scene"
+import "section"
+import "series"
+
+model User extends Base {
+  authId              String           @unique @db.VarChar(255)
+  stripeId            String           @unique @db.VarChar(255)
+  isAdmin             Boolean          @default(false)
+
+  email               String           @unique @db.VarChar(255)
+  firstName           String           @db.VarChar(255)
+  lastName            String           @db.VarChar(255)
+  penName             String?          @db.VarChar(255)
+
+  novelLimit          Int              @default(1)
+  hasFeatureHistory   Boolean          @default(false)
+  hasFeatureNotebooks Boolean          @default(false)
+  hasFeatureSeries    Boolean          @default(false)
+  hasFeatureGoals     Boolean          @default(false)
+  hasFeatureImport    Boolean          @default(false)
+  hasFeaturePrint     Boolean          @default(false)
+
+  ExportTemplates     ExportTemplate[]
+  Goals               Goal[]
+  Novels              Novel[]
+  Notebooks           Notebook[]
+  Scenes              Scene[]
+  Sections            Section[]
+  Series              Series[]
+}

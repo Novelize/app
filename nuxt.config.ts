@@ -1,8 +1,9 @@
 import tailwindcss from "@tailwindcss/vite";
+import {theme} from "./assets/theme";
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
-  css: ['~/assets/main.css'],
+  css: ['~/assets/main.css', '~/assets/fontawesome/all.css'],
   devtools: { enabled: true },
   modules: [
     '@nuxt/eslint',
@@ -11,8 +12,19 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/scripts',
     '@nuxt/test-utils',
-    "nuxt-lodash"
+    "nuxt-lodash",
+    '@primevue/nuxt-module',
   ],
+  primevue: {
+    options: {
+      theme: {
+        preset: theme,
+        options: {
+          darkModeSelector: false,
+        }
+      }
+    }
+  },
   vite: {
     plugins: [
       tailwindcss(),

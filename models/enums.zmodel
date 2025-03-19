@@ -1,0 +1,77 @@
+enum FileTypeEnum {
+  Word
+  PDF
+  Epub
+}
+
+enum FontFamilyEnum {
+  Courier
+  Helvetica
+  Times
+}
+
+enum PageSizeEnum {
+  Letter
+  Legal
+  A4
+}
+
+enum TitleFontSizeEnum {
+  Small36
+  Medium48
+  Large72
+}
+
+enum SubtitleFontSizeEnum {
+  Small22
+  Medium28
+  Large36
+}
+
+enum SectionTitleFontSizeEnum {
+  Small16
+  Medium20
+  Large24
+}
+
+enum SceneTitleFontSizeEnum {
+  Small14
+  Medium18
+  Large22
+}
+
+enum SceneTextFontSizeEnum {
+  Small12
+  Medium14
+  Large16
+}
+
+enum LineHeightEnum {
+  Single
+  OneHalf
+  Double
+}
+
+enum NovelStatusEnum {
+  Idea
+  Writing
+  Editing
+  Finished
+  Published
+  Archived
+}
+
+enum GenreEnum {
+  GeneralFiction
+  Adventure
+  Fantasy
+  HistoricalFiction
+  Horror
+  MemoirAutobiography
+  Mystery
+  Romance
+  ScienceFiction
+  Thriller
+  YoungAdult
+  WomensFiction
+}

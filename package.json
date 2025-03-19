@@ -3,11 +3,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev",
+    "dbGenerate": "zenstack generate",
+    "dbStudio": "prisma studio",
+    "dbMigrate": "prisma migrate dev",
+    "dbReset": "prisma migrate reset --force",
+    "dbSeed": "prisma db seed",
+    "build": "nuxt build",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@nuxt/eslint": "^1.2.0",
@@ -32,6 +40,7 @@
     "primevue": "^4.3.2",
     "tailwindcss": "^4.0.14",
     "tailwindcss-primeui": "^0.5.1",
+    "tsx": "^4.19.3",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
     "y-prosemirror": "^1.2.17",
@@ -39,6 +48,9 @@
     "yjs": "^13.6.24"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.6.0",
+    "@iconify-json/material-symbols": "^1.2.16",
+    "@iconify-json/mdi": "^1.2.3",
     "@primevue/nuxt-module": "^4.3.2",
     "nuxt-lodash": "^2.5.3",
     "prisma": "6.5.x",

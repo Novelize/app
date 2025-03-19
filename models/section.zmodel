@@ -1,0 +1,17 @@
+import "base"
+import "novel"
+import "scene"
+import "user"
+
+model Section extends Base {
+  isChapter Boolean @default(true)
+  order     Int?
+  title     String  @db.VarChar(255)
+  notes     String?
+
+  Novel     Novel   @relation(fields: [novelId], references: [id])
+  novelId   BigInt
+  Scenes    Scene[]
+  User      User    @relation(fields: [userId], references: [id])
+  userId    BigInt
+}

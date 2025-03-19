@@ -1,3 +1,11 @@
-@import "tailwindcss";
+@import "tailwindcss" important;
 @import "tailwindcss-primeui";
 @import 'primeicons/primeicons.css';
+
+.tiptap p {
+    @apply mb-4;
+}
+
+.tiptap h2 {
+    @apply mt-6 mb-2 font-bold text-xl;
+}

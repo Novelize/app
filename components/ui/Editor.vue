@@ -2,7 +2,6 @@
 import {BubbleMenu, Editor, EditorContent, FloatingMenu} from '@tiptap/vue-3'
 import {StarterKit} from "@tiptap/starter-kit";
 
-
 const editor = ref();
 const model = defineModel<string>();
 
@@ -26,64 +25,70 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="py-2 bg-white rounded border border-gray-200">
-    <!--    <Toolbar pt:root:class="border-0 px-2">-->
-    <!--      <template #start>-->
-    <!--        <div class="flex divide-x divide-gray-200">-->
-    <!--          <div class="flex px-2">-->
-    <!--            <UiButton icon="bold" text @click="editor.chain().focus().toggleBold().run()"/>-->
-    <!--            <UiButton icon="italic" text/>-->
-    <!--            <UiButton icon="underline" text/>-->
-    <!--            <UiButton icon="strikethrough" text/>-->
-    <!--          </div>-->
+  <Toolbar pt:root:class="border-0">
+    <template #start>
+      <div class="flex divide-x divide-gray-200">
+        <div class="flex px-2">
+          <UiButton :icon="IconName.alignLeft" text/>
+          <UiButton :icon="IconName.alignCenter" text/>
+          <UiButton :icon="IconName.alignRight" text/>
+          <UiButton :icon="IconName.alignJustify" text/>
+        </div>
 
-    <!--          <div class="flex px-2">-->
-    <!--            <UiButton icon="align-left" text/>-->
-    <!--            <UiButton icon="align-center" text/>-->
-    <!--            <UiButton icon="align-right" text/>-->
-    <!--            <UiButton icon="align-justify" text/>-->
-    <!--          </div>-->
-
-    <!--          <div class="flex px-2">-->
-    <!--            <UiButton icon="link" text/>-->
-    <!--            <UiButton icon="indent" text/>-->
-    <!--            <UiButton icon="outdent" text/>-->
-    <!--          </div>-->
-
-    <!--          <div class="flex px-2">-->
-    <!--            <UiButton icon="tint" text/>-->
-    <!--            <UiButton icon="highlighter" text/>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </template>-->
-
-    <!--      <template #end>-->
-    <!--        <div class="flex divide-x divide-gray-200">-->
-    <!--          <div class="flex px-2">-->
-    <!--            <UiButton icon="undo" text/>-->
-    <!--            <UiButton icon="redo" text/>-->
-    <!--          </div>-->
-
-    <!--          <div class="flex px-2">-->
-    <!--            <UiButton icon="print" text/>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </template>-->
-    <!--    </Toolbar>-->
-
-    <FloatingMenu v-if="editor" :editor="editor" :tippy-options="{ duration: 100 }">
-      <div class="flex gap-1 px-1 border border-gray-200 rounded-lg">
-        <UiButton icon="h2" text/>
-        <UiButton icon="h3" text/>
-        <UiButton icon="image" text/>
-        <UiButton icon="horizontalRule" text/>
-        <UiButton icon="listUl" text/>
-        <UiButton icon="listOl" text/>
+        <div class="flex px-2">
+          <UiButton :icon="IconName.link" text/>
+          <UiButton :icon="IconName.indent" text/>
+          <UiButton :icon="IconName.outdent" text/>
+        </div>
       </div>
-    </FloatingMenu>
+    </template>
 
-    <div class="pt-2 px-6">
-      <EditorContent :editor="editor"/>
+    <template #end>
+      <div class="flex divide-x divide-gray-200">
+        <div class="flex px-2">
+          <UiButton :icon="IconName.undo" text/>
+          <UiButton :icon="IconName.redo" text/>
+        </div>
+
+        <div class="flex px-2">
+          <UiButton :icon="IconName.print" text/>
+        </div>
+      </div>
+    </template>
+  </Toolbar>
+
+  <ScrollPanel class="h-full pb-4 border-t border-gray-200">
+    <div class="px-6">
+      <div class="max-w-3xl my-4 mx-auto p-4 bg-white border border-gray-200 rounded-lg">
+        <FloatingMenu v-if="editor" :editor="editor" :tippy-options="{ duration: 100 }">
+          <div class="flex gap-1 px-1 border border-gray-200 rounded-lg">
+            <UiButton :icon="IconName.h2" text/>
+            <UiButton :icon="IconName.h3" text/>
+            <UiButton :icon="IconName.image" text/>
+            <UiButton :icon="IconName.horizontalRule" text/>
+            <UiButton :icon="IconName.listUl" text/>
+            <UiButton :icon="IconName.listOl" text/>
+          </div>
+        </FloatingMenu>
+
+        <BubbleMenu v-if="editor" :editor="editor" :tippy-options="{ duration: 100 }">
+          <div class="flex gap-1 px-1 bg-white border border-gray-200 rounded-lg divide-x divide-gray-200">
+            <div class="flex px-2">
+              <UiButton :icon="IconName.bold" text @click="editor.chain().focus().toggleBold().run()"/>
+              <UiButton :icon="IconName.italic" text/>
+              <UiButton :icon="IconName.underline" text/>
+              <UiButton :icon="IconName.strikethrough" text/>
+            </div>
+
+            <div class="flex px-2">
+              <UiButton :icon="IconName.tint" text/>
+              <UiButton :icon="IconName.highlight" text/>
+            </div>
+          </div>
+        </BubbleMenu>
+
+        <EditorContent :editor="editor"/>
+      </div>
     </div>
-  </div>
+  </ScrollPanel>
 </template>

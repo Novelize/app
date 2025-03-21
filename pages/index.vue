@@ -16,13 +16,7 @@ const content = ref(`
 </script>
 
 <template>
-  <div class="max-w-3xl mx-auto space-y-2 pt-4 pb-8">
-    <Panel collapsed header="Chapter 2" toggleable>
-      <p>Description goes here</p>
-    </Panel>
-    <Panel collapsed header="Scene 2" toggleable>
-      <p>Description goes here</p>
-    </Panel>
+  <main class="absolute inset-0">
     <UiEditor v-model="content"/>
-  </div>
+  </main>
 </template>

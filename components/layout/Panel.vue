@@ -1,27 +1,27 @@
 <template>
-  <aside class="bg-gray-100">
+  <aside class="pt-2">
     <Tabs lazy scrollable value="1">
-      <TabList>
+      <TabList pt:tabList:class="justify-around">
         <Tab value="1">
-          <UiButton icon="details" text/>
+          <UiIcon :name="IconName.details" height="h-6" width="w-6"/>
         </Tab>
         <Tab value="2">
-          <UiButton icon="character" text/>
+          <UiIcon :name="IconName.character" height="h-6" width="w-6"/>
         </Tab>
         <Tab value="3">
-          <UiButton icon="location" text/>
+          <UiIcon :name="IconName.location" height="h-6" width="w-6"/>
         </Tab>
         <Tab value="4">
-          <UiButton icon="item" text/>
+          <UiIcon :name="IconName.item" height="h-6" width="w-6"/>
         </Tab>
         <Tab value="5">
-          <UiButton icon="event" text/>
+          <UiIcon :name="IconName.event" height="h-6" width="w-6"/>
         </Tab>
         <Tab value="6">
-          <UiButton icon="group" text/>
+          <UiIcon :name="IconName.group" height="h-6" width="w-6"/>
         </Tab>
         <Tab value="7">
-          <UiButton icon="note" text/>
+          <UiIcon :name="IconName.note" height="h-6" width="w-6"/>
         </Tab>
       </TabList>
 
@@ -51,3 +51,5 @@
     </Tabs>
   </aside>
 </template>
+<script lang="ts" setup>
+</script>

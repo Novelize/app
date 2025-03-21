@@ -1,28 +1,20 @@
 <script lang="ts" setup>
 import Splitter from 'primevue/splitter';
 import SplitterPanel from 'primevue/splitterpanel';
-import ScrollPanel from "primevue/scrollpanel";
 </script>
 
 <template>
-  <LayoutHeader class="fixed top-0 inset-0 z-50 h-10"/>
+  <LayoutHeader class="fixed top-0 left-56 right-0 z-50 h-12"/>
 
-  <main class="fixed top-10 bottom-0 inset-0 bg-gray-50">
-    <Splitter class="h-full" stateKey="wrapperSplitter">
-      <SplitterPanel :minSize="50" :size="80">
-        <div class="relative h-full">
-          <LayoutContents class="absolute inset-y-0 left-0 w-48"/>
+  <Splitter class="fixed top-12 bottom-0 left-56 right-0 bg-gray-50 border-none" stateKey="splitter">
+    <SplitterPanel :minSize="50" :size="75" class="relative h-full">
+      <slot/>
+    </SplitterPanel>
 
-          <ScrollPanel class="absolute inset-y-0 right-0 left-48">
-            <slot/>
-          </ScrollPanel>
-        </div>
-      </SplitterPanel>
+    <SplitterPanel :minSize="25" :size="25" class="relative h-full border-l border-gray-200">
+      <LayoutPanel/>
+    </SplitterPanel>
+  </Splitter>
 
-      <SplitterPanel :minSize="20" :size="20" class="h-full">
-        <LayoutPanel class="h-full"/>
-      </SplitterPanel>
-    </Splitter>
-
-  </main>
+  <LayoutContents class="fixed inset-y-0 left-0 w-56 bg-gray-50 border-r border-gray-200"/>
 </template>

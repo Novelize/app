@@ -7,5 +7,6 @@ export default withNuxt(
       "vue/no-multiple-template-root": "off",
       "vue/attribute-hyphenation":     "off",
       "vue/require-default-prop":      "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
   })

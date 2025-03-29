@@ -1,0 +1,10 @@
+import "base"
+import "entry"
+
+model EntryTemplate extends Base {
+  isGlobal Boolean @default(false)
+  type EntryType
+  name String
+  description String?
+  fields EntryField[] @json
+}

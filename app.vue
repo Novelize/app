@@ -1,8 +1,12 @@
+<script lang="ts" setup>
+useHead({
+  bodyAttrs: {
+    class: 'text-slate-300',
+  }
+})
+</script>
+
 <template>
-  <div>
-    <NuxtRouteAnnouncer />
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </div>
+  <NuxtRouteAnnouncer/>
+  <NuxtPage/>
 </template>

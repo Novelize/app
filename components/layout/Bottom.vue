@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div>
-    <p>Manage</p>
-  </div>
+  <LayoutPanel side="bottom">
+    bottom
+  </LayoutPanel>
 </template>

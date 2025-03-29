@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import type {IconName} from "~/composables/useIcon";
+import type {IconName} from "~/data/iconName.enum";
 
 withDefaults(defineProps<{
-  name: IconName,
+  name: IconName | string,
   width?: string,
   height?: string,
 }>(), {
-  width: 'w-8',
-  height: 'h-8',
+  width: 'w-5',
+  height: 'h-5',
 })
 </script>
 

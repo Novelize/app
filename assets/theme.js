@@ -33,6 +33,22 @@ export const theme = definePreset(Aura, {
           950: '{slate.950}',
         },
       },
+      dark:  {
+        surface: {
+          0:   '#ffffff',
+          50:  '{slate.50}',
+          100: '{slate.100}',
+          200: '{slate.200}',
+          300: '{slate.300}',
+          400: '{slate.400}',
+          500: '{slate.500}',
+          600: '{slate.600}',
+          700: '{slate.700}',
+          800: '{slate.800}',
+          900: '{slate.900}',
+          950: '{slate.950}',
+        },
+      },
     },
   },
   components: {
@@ -43,14 +59,40 @@ export const theme = definePreset(Aura, {
         },
       },
     },
+    chip:     {
+      border:      {
+        radius: '8px',
+      },
+      padding:     {
+        x: '0.5rem',
+        y: '0.25rem',
+      },
+      colorScheme: {
+        dark: {
+          background: 'rgba(255, 255, 255, 0.1)',
+          color:      '{slate.400}',
+          remove:     {
+            icon: {
+              color: '{slate.600}',
+            },
+          },
+        },
+      },
+    },
+    divider:  {
+      horizontal: {
+        margin: '0.5rem',
+      },
+    },
     splitter: {
       colorScheme: {
-        light: {
+        dark: {
           background: 'transparent',
           border:     'transparent',
           gutter:     {
             background: 'transparent',
           },
+          color: '{slate.300}',
         },
       },
     },
@@ -71,9 +113,11 @@ export const theme = definePreset(Aura, {
       },
     },
     toolbar:  {
-      padding:     '0.5rem 0.25rem',
+      padding:     '0 0.25rem',
       colorScheme: {
-        background: 'transparent',
+        dark: {
+          background: 'transparent',
+        },
       },
     },
   },

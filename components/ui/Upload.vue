@@ -19,7 +19,7 @@ defineEmits<{
 }>()
 
 function onUpload() {
-  // TODO: do something
+  // TODO: Get file upload working
 }
 </script>
 

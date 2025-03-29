@@ -1,8 +1,38 @@
 import "base"
 
+enum EntryType {
+  Character
+  Location
+  Item
+  Event
+  Note
+  Group
+}
+
+enum FieldType {
+  Input
+  Textarea
+  Select
+}
+
+type FieldOption {
+  label String
+  value String
+}
+
+type EntryField {
+  name    String
+  label   String
+  value   String
+  type    FieldType
+  options FieldOption[]
+}
+
 model Entry extends Base {
-  name        String  @db.VarChar(255)
+  type        EntryType
+  name        String       @db.VarChar(255)
   description String?
-  details     String? @db.Text
-  imagePath   String? @db.VarChar(255)
+  details     String?      @db.Text
+  imagePath   String?      @db.VarChar(255)
+  fields      EntryField[] @json
 }

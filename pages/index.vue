@@ -14,7 +14,7 @@ const panels = usePanels();
     <Splitter :gutterSize="8" class="h-full border-none" stateKey="Splitter1">
       <!-- Left -->
       <SplitterPanel v-if="panels.state.showLeft" :minSize="15" :size="30">
-        <LayoutLeft/>
+        <LayoutPanel location="left"/>
       </SplitterPanel>
 
       <SplitterPanel :size="70">
@@ -28,14 +28,14 @@ const panels = usePanels();
 
               <!-- Bottom -->
               <SplitterPanel v-if="panels.state.showBottom" :minSize="10" :size="30">
-                <LayoutBottom/>
+                <LayoutPanel location="bottom"/>
               </SplitterPanel>
             </Splitter>
           </SplitterPanel>
 
           <!-- Right -->
           <SplitterPanel v-if="panels.state.showRight" :minSize="15" :size="30">
-            <LayoutRight/>
+            <LayoutPanel location="right"/>
           </SplitterPanel>
         </Splitter>
       </SplitterPanel>

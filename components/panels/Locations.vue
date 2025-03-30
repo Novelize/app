@@ -1,8 +1,9 @@
 <script lang="ts" setup>
+
 </script>
 
 <template>
-  <LayoutPanel empty side="right">
-
-  </LayoutPanel>
+  <div>
+    Locations
+  </div>
 </template>

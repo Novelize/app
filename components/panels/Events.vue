@@ -4,6 +4,6 @@
 
 <template>
   <div>
-    Entry
+    Events
   </div>
 </template>

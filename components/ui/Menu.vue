@@ -1,15 +1,23 @@
 <script lang="ts" setup>
 import Menu from 'primevue/menu';
-import Divider from 'primevue/divider';
 import type {MenuItem} from "primevue/menuitem";
 import type {IconName} from "~/data/iconName.enum";
 
-defineProps<{
+const props = defineProps<{
   items: MenuItem[];
   icon: IconName;
 }>()
 
 const menu = ref();
+
+const menuDisabled = computed(() => {
+  return props.items.filter(item => {
+    if (Object.prototype.hasOwnProperty.call(item, 'visible')) {
+      return item.visible === true;
+    }
+    return true;
+  }).length === 0;
+})
 
 function toggleMenu(event: any) {
   menu.value.toggle(event);
@@ -18,17 +26,17 @@ function toggleMenu(event: any) {
 
 <template>
   <UiButton
-    :icon color="secondary" height="h-5"
-    text width="w-5"
+    :disabled="menuDisabled" :icon color="secondary"
+    height="h-5" text
+    width="w-5"
     @click="toggleMenu"
   />
 
   <Menu ref="menu" :model="items" popup>
     <template #item="{ item }">
-      <Divider v-if="item.divider"/>
       <button
-        v-else
-        class="flex items-center gap-2 py-1 px-2 pointer"
+        :disabled="!!item.disabled"
+        class="flex items-center gap-2 py-1 px-2 cursor-pointer"
         type="button"
         @click="item.command ? item.command : null"
       >

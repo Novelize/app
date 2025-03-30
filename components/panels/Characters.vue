@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <LayoutPanel side="bottom">
-    bottom
-  </LayoutPanel>
+  <div>
+    Characters
+  </div>
 </template>

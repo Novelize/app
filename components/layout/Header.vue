@@ -19,17 +19,17 @@ const items = ref([
   {label: 'Manage Novel', icon: IconName.novel, command: () => showNovelManage.value = true},
   {label: 'Novel Goals', icon: IconName.goals, command: () => showNovelGoals.value = true},
   {label: 'Export Novel', icon: IconName.download, command: () => showNovelExport.value = true},
-  {divider: true},
+  {separator: true},
   {label: 'Create Novel', icon: IconName.add, command: () => showNovelCreate.value = true},
   {label: 'Create Notebook', icon: IconName.add, command: () => showNotebookCreate.value = true},
-  {divider: true},
+  {separator: true},
   {label: 'View Novels', icon: IconName.novel, command: () => showNotebookView.value = true},
   {label: 'View Notebooks', icon: IconName.notebook, command: () => showNotebookView.value = true},
-  {divider: true},
+  {separator: true},
   {label: 'Settings', icon: IconName.settings, command: () => showSettingsGeneral.value = true},
   {label: 'Account', icon: IconName.account, command: () => showSettingsAccount.value = true},
   {label: 'Billing', icon: IconName.billing, command: () => showSettingsBilling.value = true},
-  {divider: true},
+  {separator: true},
   {label: 'Logout', icon: IconName.logout, command: logout},
 ]);
 
@@ -44,6 +44,7 @@ function logout() {
       <UiButton
         :class="{'text-slate-200': panels.state.showLeft}"
         :icon="IconName.dockLeft"
+        color="secondary"
         text
         @click="panels.toggleLeftPanel()"
       />
